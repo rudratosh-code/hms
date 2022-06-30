@@ -79,37 +79,18 @@ class Patient extends MX_Controller {
             $redirect = $this->input->post('redirect');
         }
         $name = $this->input->post('name');
-        $password = $this->input->post('password');
+        $doctor = $this->input->post('medical_isurance');
+        $doctor = $this->input->post('insurer');
+        $doctor = $this->input->post('emergency_contact_name');
+        $doctor = $this->input->post('emergency_contact_number');
         $sms = $this->input->post('sms');
         $doctor = $this->input->post('doctor');
         $address = $this->input->post('address');
         $phone = $this->input->post('phone');
-        $sex = $this->input->post('sex');
-        $birthdate = $this->input->post('birthdate');
-        if(empty($birthdate)){
-            $years = $this->input->post('years');
-            $months = $this->input->post('months');
-            $days = $this->input->post('days');
-            if(empty($years)){
-                $years='0';
-            }
-            if(empty($months)){
-                $months='0';
-            }
-            if(empty($days)){
-                $days='0';
-            }
-            
-        }else{
-            $dateOfBirth = $birthdate;
-            $today = date("Y-m-d");
-            $diff = date_diff(date_create($dateOfBirth), date_create($today));
-            $years=$diff->format('%y');
-            $months =$diff->format('%m');
-            $days =$diff->format('%d');
-
-        }
-        $age=$years.'-'.$months.'-'.$days;
+        $sex = $this->input->post('sex');   
+        $age = $this->input->post('age');        
+        $bloodgroup = $this->input->post('bloodgroup');
+     
         $bloodgroup = $this->input->post('bloodgroup');
         $patient_id = $this->input->post('p_id');
         if (empty($patient_id)) {
@@ -136,10 +117,6 @@ class Patient extends MX_Controller {
 
         // Validating Name Field
         $this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[2]|max_length[100]|xss_clean');
-        // Validating Password Field
-        if (empty($id)) {
-            $this->form_validation->set_rules('password', 'Password', 'trim|min_length[3]|max_length[100]|xss_clean');
-        }
         // Validating Email Field
         $this->form_validation->set_rules('email', 'Email', 'trim|min_length[2]|max_length[100]|xss_clean');
         // Validating Doctor Field
@@ -334,7 +311,7 @@ class Patient extends MX_Controller {
     function editPatient() {
         $data = array();
         $id = $this->input->get('id');
-        $data['patient'] = $this->patient_model->getPatientById($id);
+        //$data['patient'] = $this->patient_model->getPatientById($id);
         $data['doctors'] = $this->doctor_model->getDoctor();
         $data['groups'] = $this->donor_model->getBloodBank();
         $this->load->view('home/dashboard');

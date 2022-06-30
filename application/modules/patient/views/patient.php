@@ -69,20 +69,26 @@
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label for="exampleInputEmail1"><?php echo lang('email'); ?> &ast;</label>
-                        <input type="email" class="form-control" name="email"  value='' placeholder="" required="">
+                        <label for="exampleInputEmail1"><?php echo lang('email'); ?> </label>
+                        <input type="email" class="form-control" name="email"  value='' placeholder="" >
                     </div>
 
-                    <div class="form-group col-md-6">
-                        <label for="exampleInputEmail1"><?php echo lang('password'); ?> &ast;</label>
-                        <input type="password" class="form-control" name="password"  placeholder="" autocomplete="off">
-                    </div>
-
+                   
 
 
                     <div class="form-group col-md-6">
-                        <label for="exampleInputEmail1"><?php echo lang('address'); ?> &ast;</label>
-                        <input type="text" class="form-control" name="address"  value='' placeholder="" required="">
+                    <label for="exampleInputEmail1"><?php echo lang('address'); ?> &ast;</label>
+                        <select class="form-control m-bot15" name="address" value=''>
+                            <?php foreach ($groups as $group) { ?>
+                                <option value="<?php echo $group->group; ?>" <?php
+                                if (!empty($patient->bloodgroup)) {
+                                    if ($group->group == $patient->bloodgroup) {
+                                        echo 'selected';
+                                    }
+                                }
+                                ?> > <?php echo $group->group; ?> </option>
+                                    <?php } ?> 
+                        </select>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="exampleInputEmail1"><?php echo lang('phone'); ?> &ast;</label>
@@ -110,47 +116,52 @@
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label><?php echo lang('birth_date'); ?> </label>
-                        <input class="form-control form-control-inline input-medium default-date-picker" type="text" name="birthdate" value="" placeholder="" required="" onkeypress="return false;">      
-                    </div>
-                    <div class="form-group col-md-6">
-                                        <div class="col-md-12">
-                                            <label><?php echo lang('age'); ?></label>
-
-                                        </div>
-                                            <div class="col-md-12">
-
-                                           
-                                            <div class="input-group m-bot15">
-                                       
-                                                <input type="number" min="0" max="150" class="form-control" name="years"  value='' placeholder="<?php echo lang('years');?>">
-                                                <span class="input-group-addon"><?php echo lang('y');?></span>
-                                                <input type="number" class="form-control input-group-addon" min="0" max="12" name="months"  value='' placeholder="<?php echo lang('months');?>">
-                                                <span class="input-group-addon"><?php echo lang('m');?></span>
-                                                <input type="number" class="form-control input-group-addon" name="days"  min="0" max="29"   value='' placeholder="<?php echo lang('days');?>">
-                                                <span class="input-group-addon"><?php echo lang('d');?></span>
-                                            </div>
-                                            
-                                        
-                                             </div>
-                                            
-                                  
-                                            
-                                        </div>
-
-                    <div class="form-group col-md-6">
-                        <label for="exampleInputEmail1"><?php echo lang('blood_group'); ?></label>
-                        <select class="form-control m-bot15" name="bloodgroup" value=''>
-                            <?php foreach ($groups as $group) { ?>
-                                <option value="<?php echo $group->group; ?>" <?php
-                                if (!empty($patient->bloodgroup)) {
-                                    if ($group->group == $patient->bloodgroup) {
+                        <label for="exampleInputEmail1"><?php echo lang('age'); ?> &ast;</label>
+                        <select class="form-control m-bot15" name="age" value=''>
+                            <?php for($i=0;$i<=100;$i++) { ?>
+                                <option value="<?php echo $i; ?>" <?php
+                                if (!empty($patient->age)) {
+                                    if ($i == $patient->age) {
                                         echo 'selected';
                                     }
                                 }
-                                ?> > <?php echo $group->group; ?> </option>
+                                ?> > <?php echo $i; ?> </option>
                                     <?php } ?> 
                         </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1"><?php echo lang('medical_isurance'); ?></label>
+                        <select class="form-control m-bot15" name="medical_isurance" value=''>
+
+                            <option value="yes" <?php
+                            if (!empty($patient->medical_isurance)) {
+                                if ($patient->medical_isurance == 'yes') {
+                                    echo 'selected';
+                                }
+                            }
+                            ?> > yes </option>
+                            <option value="no" <?php
+                            if (!empty($patient->medical_isurance)) {
+                                if ($patient->medical_isurance == 'no') {
+                                    echo 'selected';
+                                }
+                            }
+                            ?> > no </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1"><?php echo lang('insurer'); ?> &ast;</label>
+                        <input type="text" class="form-control" name="insurer"  value='' placeholder="">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1"><?php echo lang('emergency_contact_name'); ?></label>
+                        <input type="text" class="form-control" name="emergency_contact_name"  value='' placeholder="">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1"><?php echo lang('emergency_contact_number'); ?></label>
+                        <input type="number" class="form-control"  name="emergency_contact_number" value='' placeholder="">
                     </div>
 
                     <div class="form-group col-md-6">    
@@ -223,20 +234,14 @@
 
                     <div class="form-group col-md-6">
                         <label for="exampleInputEmail1"><?php echo lang('email'); ?></label>
-                        <input type="email" class="form-control" name="email"  value='' placeholder="" required="">
+                        <input type="email" class="form-control" name="email"  value='' placeholder="" >
                     </div>
-
-                    <div class="form-group col-md-6">
-                        <label for="exampleInputEmail1"><?php echo lang('change'); ?><?php echo lang('password'); ?></label>
-                        <input type="password" class="form-control" name="password"  placeholder="" autocomplete="off">
-                    </div>
-
-
 
                     <div class="form-group col-md-6">
                         <label for="exampleInputEmail1"><?php echo lang('address'); ?> &ast;</label>
                         <input type="text" class="form-control" name="address"  value='' placeholder="" required="">
                     </div>
+                    
                     <div class="form-group col-md-6">
                         <label for="exampleInputEmail1"><?php echo lang('phone'); ?> &ast;</label>
                         <input type="text" class="form-control" name="phone"  value='' placeholder="" required="">
