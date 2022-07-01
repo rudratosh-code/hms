@@ -52,6 +52,7 @@ class Patient extends MX_Controller {
         $data = array();
         $data['doctors'] = $this->doctor_model->getDoctor();
         $data['groups'] = $this->donor_model->getBloodBank();
+        $data['areas'] = $this->donor_model->getBloodBank();
         $this->load->view('home/dashboard');
         $this->load->view('add_new', $data);
         $this->load->view('home/footer');
@@ -79,19 +80,16 @@ class Patient extends MX_Controller {
             $redirect = $this->input->post('redirect');
         }
         $name = $this->input->post('name');
-        $doctor = $this->input->post('medical_isurance');
-        $doctor = $this->input->post('insurer');
-        $doctor = $this->input->post('emergency_contact_name');
-        $doctor = $this->input->post('emergency_contact_number');
+        $medicalIsurance = $this->input->post('medical_isurance');
+        $insurer = $this->input->post('insurer');
+        $emergencyContactName = $this->input->post('emergency_contact_name');
+        $emergencyContactNumber = $this->input->post('emergency_contact_number');
         $sms = $this->input->post('sms');
         $doctor = $this->input->post('doctor');
         $address = $this->input->post('address');
         $phone = $this->input->post('phone');
         $sex = $this->input->post('sex');   
-        $age = $this->input->post('age');        
-        $bloodgroup = $this->input->post('bloodgroup');
-     
-        $bloodgroup = $this->input->post('bloodgroup');
+        $age = $this->input->post('age');             
         $patient_id = $this->input->post('p_id');
         if (empty($patient_id)) {
             $patient_id = rand(10000, 1000000);
@@ -127,19 +125,12 @@ class Patient extends MX_Controller {
         $this->form_validation->set_rules('phone', 'Phone', 'trim|required|min_length[2]|max_length[50]|xss_clean');
         // Validating Email Field
         $this->form_validation->set_rules('sex', 'Sex', 'trim|min_length[2]|max_length[100]|xss_clean');
-        // Validating Address Field   
-        $this->form_validation->set_rules('birthdate', 'Birth Date', 'trim|min_length[2]|max_length[500]|xss_clean');
-        // Validating Phone Field           
-        $this->form_validation->set_rules('bloodgroup', 'Blood Group', 'trim|min_length[1]|max_length[10]|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
             if (!empty($id)) {
                 $this->session->set_flashdata('feedback', lang('validation_error'));
                 redirect("patient/editPatient?id=$id");
             } else {
-                $years = $this->input->post('years');
-                $months = $this->input->post('months');
-                $days = $this->input->post('days');
                 $data = array();
                 $data['setval'] = 'setval';
                 $data['doctors'] = $this->doctor_model->getDoctor();
@@ -187,14 +178,16 @@ class Patient extends MX_Controller {
                     'doctor' => $doctor,
                     'phone' => $phone,
                     'sex' => $sex,
-                    'birthdate' => $birthdate,
-                    'bloodgroup' => $bloodgroup,
                     'add_date' => $add_date,
                     'registration_time' => $registration_time,
                     'payment_confirmation' => 'Active',
                     'appointment_confirmation' => 'Active',
                     'appointment_creation' => 'Active',
                     'meeting_schedule' => 'Active',
+                    'isurance'=>$medicalIsurance,
+                    'insurer'=>$insurer,
+                    'emergency_contact_name'=>$emergencyContactName,
+                    'emergency_contact_number'=>$emergencyContactNumber,
                     'age'=>$age
                 );
             } else {
@@ -216,6 +209,10 @@ class Patient extends MX_Controller {
                     'appointment_confirmation' => 'Active',
                     'appointment_creation' => 'Active',
                     'meeting_schedule' => 'Active',
+                    'isurance'=>$medicalIsurance,
+                    'insurer'=>$insurer,
+                    'emergency_contact_name'=>$emergencyContactName,
+                    'emergency_contact_number'=>$emergencyContactNumber,
                     'age'=>$age
                 );
             }

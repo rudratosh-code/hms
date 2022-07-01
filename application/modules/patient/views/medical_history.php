@@ -1134,12 +1134,8 @@
                         <input min="1" type="number" class="form-control" name="heart_rate" placeholder="" required="">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="exampleInputEmail1"> <?php echo lang('systolic_blood_pressure'); ?>(mmHg)&ast; </label>
-                        <input min="1" type="number" class="form-control" name="systolic_blood_pressure" placeholder="" required="">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="exampleInputEmail1"> <?php echo lang('diastolic_blood_pressure'); ?>(mmHg)&ast; </label>
-                        <input min="1" type="number" class="form-control" name="diastolic_blood_pressure" placeholder="" required="">
+                        <label for="exampleInputEmail1"> <?php echo lang('blood_pressure'); ?>&ast; </label>
+                        <input min="1" type="number" class="form-control" name="blood_pressure" placeholder="" required="">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="exampleInputEmail1"> <?php echo lang('temperature'); ?>(&deg;C)&ast; </label>
@@ -1149,18 +1145,72 @@
                         <label for="exampleInputEmail1"> <?php echo lang('oxygen_saturation'); ?>(%)&ast; </label>
                         <input min="1" type="number" class="form-control" name="oxygen_saturation" placeholder="" required="">
                     </div>
+
                     <div class="form-group col-md-6">
-                        <label for="exampleInputEmail1"> <?php echo lang('respiratory_rate'); ?>(bpm)&ast; </label>
-                        <input min="1" type="number" class="form-control" name="respiratory_rate" placeholder="" required="">
+                        <label for="exampleInputEmail1"><?php echo lang('general_appearance'); ?></label>
+                        <select class="form-control m-bot15" name="general_appearance" value=''>
+
+                            <option value="Thin" <?php
+                            if (!empty($patient->general_appearance)) {
+                                if ($patient->general_appearance == 'Thin') {
+                                    echo 'selected';
+                                }
+                            }
+                            ?> > Thin </option>
+                            <option value="Average" <?php
+                            if (!empty($patient->general_appearance)) {
+                                if ($patient->general_appearance == 'Average') {
+                                    echo 'selected';
+                                }
+                            }
+                            ?> > Average </option>
+                             <option value="Obese" <?php
+                            if (!empty($patient->general_appearance)) {
+                                if ($patient->general_appearance == 'Obese') {
+                                    echo 'selected';
+                                }
+                            }
+                            ?> > Obese </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1"><?php echo lang('lifestyle'); ?></label>
+                        <select class="form-control m-bot15" name="lifestyle" value=''>
+
+                            <option value="Sedentary" <?php
+                            if (!empty($patient->lifestyle)) {
+                                if ($patient->lifestyle == 'Sedentary') {
+                                    echo 'selected';
+                                }
+                            }
+                            ?> > Sedentary </option>
+                            <option value="Active" <?php
+                            if (!empty($patient->lifestyle)) {
+                                if ($patient->lifestyle == 'Active') {
+                                    echo 'selected';
+                                }
+                            }
+                            ?> > Active </option>
+                            
+                        </select>
                     </div>
                     <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1"> <?php echo lang('blood_sugar_level'); ?>(mg/dL)&ast; </label>
+                        <input min="1" type="number" step="0.5" class="form-control" name="blood_sugar_level" placeholder="" required="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1"> <?php echo lang('remarks'); ?> </label>
+                        <textarea type="text" class="form-control" name="remarks" placeholder=""></textarea>
+                    </div>
+                    <!-- <div class="form-group col-md-6">
                         <label for="exampleInputEmail1"> <?php echo lang('bmi_weight'); ?>(Kg)&ast; </label>
                         <input min="1" step="0.01" type="number" class="form-control" name="bmi_weight" placeholder="" required="">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="exampleInputEmail1"> <?php echo lang('bmi_height'); ?>(Cm)&ast; </label>
                         <input min="1" type="number" step="0.01" class="form-control" name="bmi_height" placeholder="" required="">
-                    </div>
+                    </div> -->
                     <input type="hidden" name="patient" value='<?php echo $patient->id; ?>'>
 
                     <div class="form-group col-md-12">

@@ -73,20 +73,17 @@
                         <input type="email" class="form-control" name="email"  value='' placeholder="" >
                     </div>
 
-                   
-
-
                     <div class="form-group col-md-6">
                     <label for="exampleInputEmail1"><?php echo lang('address'); ?> &ast;</label>
                         <select class="form-control m-bot15" name="address" value=''>
-                            <?php foreach ($groups as $group) { ?>
-                                <option value="<?php echo $group->group; ?>" <?php
-                                if (!empty($patient->bloodgroup)) {
-                                    if ($group->group == $patient->bloodgroup) {
+                            <?php foreach ($areas as $area) { ?>
+                                <option value="<?php echo $area->area; ?>" <?php
+                                if (!empty($patient->area)) {
+                                    if ($area->area == $patient->area) {
                                         echo 'selected';
                                     }
                                 }
-                                ?> > <?php echo $group->group; ?> </option>
+                                ?> > <?php echo $area->area; ?> </option>
                                     <?php } ?> 
                         </select>
                     </div>
@@ -130,19 +127,19 @@
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="exampleInputEmail1"><?php echo lang('medical_isurance'); ?></label>
-                        <select class="form-control m-bot15" name="medical_isurance" value=''>
+                        <label for="exampleInputEmail1"><?php echo lang('medical_insurance'); ?></label>
+                        <select class="form-control m-bot15" name="medical_insurance" value=''>
 
                             <option value="yes" <?php
-                            if (!empty($patient->medical_isurance)) {
-                                if ($patient->medical_isurance == 'yes') {
+                            if (!empty($patient->medical_insurance)) {
+                                if ($patient->medical_insurance == 'yes') {
                                     echo 'selected';
                                 }
                             }
                             ?> > yes </option>
                             <option value="no" <?php
-                            if (!empty($patient->medical_isurance)) {
-                                if ($patient->medical_isurance == 'no') {
+                            if (!empty($patient->medical_insurance)) {
+                                if ($patient->medical_insurance == 'no') {
                                     echo 'selected';
                                 }
                             }
@@ -268,47 +265,54 @@
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label><?php echo lang('birth_date'); ?> &ast;</label>
-                        <input class="form-control form-control-inline input-medium default-date-picker" type="text" name="birthdate" value="" placeholder="" required="" onkeypress="return false;">      
-                    </div>
-                    <div class="form-group col-md-6">
-                                        <div class="col-md-12">
-                                            <label><?php echo lang('age'); ?></label>
-
-                                        </div>
-                                            <div class="col-md-12">
-
-                                           
-                                            <div class="input-group m-bot15">
-                                       
-                                                <input type="number" min="0" max="150" class="form-control" name="years"  value='' placeholder="<?php echo lang('years');?>">
-                                                <span class="input-group-addon"><?php echo lang('y');?></span>
-                                                <input type="number" class="form-control input-group-addon" min="0" max="12" name="months"  value='' placeholder="<?php echo lang('months');?>">
-                                                <span class="input-group-addon"><?php echo lang('m');?></span>
-                                                <input type="number" class="form-control input-group-addon" name="days"  min="0" max="29"   value='' placeholder="<?php echo lang('days');?>">
-                                                <span class="input-group-addon"><?php echo lang('d');?></span>
-                                            </div>
-                                            
-                                        
-                                             </div>
-                                            
-                                  
-                                            
-                                        </div>
-
-                    <div class="form-group col-md-6">
-                        <label for="exampleInputEmail1"><?php echo lang('blood_group'); ?></label>
-                        <select class="form-control m-bot15" name="bloodgroup" value=''>
-                            <?php foreach ($groups as $group) { ?>
-                                <option value="<?php echo $group->group; ?>" <?php
-                                if (!empty($patient->bloodgroup)) {
-                                    if ($group->group == $patient->bloodgroup) {
+                        <label for="exampleInputEmail1"><?php echo lang('age'); ?></label>
+                        <select class="form-control m-bot15" name="age" value=''>
+                            <?php for($i=0;$i<=100;$i++) { ?>
+                                <option value="<?php echo $i; ?>" <?php
+                                if (!empty($patient->age)) {
+                                    if ($i == $patient->age) {
                                         echo 'selected';
                                     }
                                 }
-                                ?> > <?php echo $group->group; ?> </option>
+                                ?> > <?php echo $i; ?> </option>
                                     <?php } ?> 
                         </select>
+                    </div>
+                    <!-- medical insurance -->
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1"><?php echo lang('medical_insurance'); ?></label>
+                        <select class="form-control m-bot15" name="medical_insurance" value=''>
+
+                            <option value="yes" <?php
+                            if (!empty($patient->medical_insurance)) {
+                                if ($patient->medical_insurance == 'yes') {
+                                    echo 'selected';
+                                }
+                            }
+                            ?> > yes </option>
+                            <option value="no" <?php
+                            if (!empty($patient->medical_insurance)) {
+                                if ($patient->medical_insurance == 'no') {
+                                    echo 'selected';
+                                }
+                            }
+                            ?> > no </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1"><?php echo lang('insurer'); ?></label>
+                        <input type="text" class="form-control" name="insurer"  value='' >
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1"><?php echo lang('emergency_contact_name'); ?></label>
+                        <input type="text" class="form-control" name="emergency_contact_name"  value=''>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1"><?php echo lang('emergency_contact_number'); ?></label>
+                        <input type="number" class="form-control"  name="emergency_contact_number" value=''>
                     </div>
 
                     <div class="form-group col-md-6">    
