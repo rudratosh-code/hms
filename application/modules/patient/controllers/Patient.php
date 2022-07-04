@@ -314,9 +314,10 @@ class Patient extends MX_Controller {
     function editPatient() {
         $data = array();
         $id = $this->input->get('id');
-        //$data['patient'] = $this->patient_model->getPatientById($id);
+        $data['patient'] = $this->patient_model->getPatientById($id);
         $data['doctors'] = $this->doctor_model->getDoctor();
         $data['groups'] = $this->donor_model->getBloodBank();
+        $data['address'] = $this->Address_model->getAddress();
         $this->load->view('home/dashboard');
         $this->load->view('add_new', $data);
         $this->load->view('home/footer');

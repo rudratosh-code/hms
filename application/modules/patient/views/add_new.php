@@ -67,25 +67,34 @@
                                             if (!empty($patient->email)) {
                                                 echo $patient->email;
                                             }
-                                            ?>' placeholder="" required="">
+                                            ?>' placeholder="">
                                         </div>
 
-                                        <div class="form-group">        
-                                            <label for="exampleInputEmail1"><?php echo lang('password'); ?> &ast;</label>
-                                            <input type="password" class="form-control" name="password"  placeholder="">
-                                        </div>
+                                        
 
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1"><?php echo lang('address'); ?> &ast;</label>
-                                            <input type="text" class="form-control" name="address"  value='<?php
+                    <label for="exampleInputEmail1"><?php echo lang('address'); ?> &ast;</label>
+                        <select class="form-control m-bot15" name="address" value='<?php
                                             if (!empty($setval)) {
                                                 echo set_value('address');
                                             }
                                             if (!empty($patient->address)) {
                                                 echo $patient->address;
                                             }
-                                            ?>' placeholder="" required="">
-                                        </div>
+                                            ?>'>
+                            <?php foreach ($address as $ads) { ?>
+                                <option value="<?php echo $ads->name; ?>" <?php
+                                if (!empty($patient->address)) {
+                                    if ($ads->name == $patient->address) {
+                                        echo 'selected';
+                                    }
+                                }
+                                ?> > <?php echo $ads->name; ?> </option>
+                                    <?php } ?> 
+                        </select>
+                    </div>
+
+
                                         <!--   onKeyPress="if(this.value.length==11) return false;" -->
                                         <div class="form-group">
                                             <label for="exampleInputEmail1"><?php echo lang('phone'); ?> &ast;</label>
@@ -129,88 +138,59 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label><?php echo lang('birth_date'); ?></label>
-                                            <input class="form-control form-control-inline input-medium default-date-picker" type="text" name="birthdate" value="<?php
-                                            if (!empty($setval)) {
-                                                echo set_value('birthdate');
-                                            }
-                                            if (!empty($patient->birthdate)) {
-                                                echo $patient->birthdate;
-                                            }
-                                            ?>" placeholder="">      
-                                        </div>
-                                        <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label><?php echo lang('age'); ?></label>
+                        <label for="exampleInputEmail1"><?php echo lang('age'); ?> &ast;</label>
+                        <select class="form-control m-bot15" name="age" value=''>
+                            <?php for($i=0;$i<=100;$i++) { ?>
+                                <option value="<?php echo $i; ?>" <?php
+                                if (!empty($patient->age)) {
+                                    if ($i == $patient->age) {
+                                        echo 'selected';
+                                    }
+                                }
+                                ?> > <?php echo $i; ?> </option>
+                                    <?php } ?> 
+                        </select>
+                    </div>
 
-                                        </div>
-                                            <div class="col-md-12">
 
-                                            <?php
-                                            if (!empty($patient->age)) {
-                                                $age=explode('-',$patient->age);
-                                            } ?>
-                                            <div class="input-group m-bot15">
-                                       
-                                                <input type="number" min="0" max="150" class="form-control" name="years"  value='<?php
-                                            if (!empty($setval)) {
-                                                echo set_value('years');
-                                            }
-                                            if (!empty($patient->age)) {
-                                                echo $age[0];
-                                            }
-                                            ?>' placeholder="<?php echo lang('years');?>">
-                                                <span class="input-group-addon"><?php echo lang('years');?></span>
-                                                <input type="number" class="form-control input-group-addon" min="0" max="12" name="months"  value='<?php
-                                            if (!empty($setval)) {
-                                                echo set_value('months');
-                                            }
-                                            if (!empty($patient->age)) {
-                                                echo $age[1];
-                                            }
-                                            ?>' placeholder="<?php echo lang('months');?>">
-                                                <span class="input-group-addon"><?php echo lang('months');?></span>
-                                                <input type="number" class="form-control input-group-addon" name="days"  min="0" max="29"   value='<?php
-                                            if (!empty($setval)) {
-                                                echo set_value('days');
-                                            }
-                                            if (!empty($patient->age)) {
-                                                echo $age[2];
-                                            }
-                                            ?>' placeholder="<?php echo lang('days');?>">
-                                                <span class="input-group-addon"><?php echo lang('days');?></span>
-                                            </div>
-                                            
+
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1"><?php echo lang('medical_insurance'); ?></label>
+                        <select class="form-control m-bot15" name="medical_insurance" value=''>
+
+                            <option value="yes" <?php
+                            if (!empty($patient->medical_insurance)) {
+                                if ($patient->medical_insurance == 'yes') {
+                                    echo 'selected';
+                                }
+                            }
+                            ?> > Yes </option>
+                            <option value="no" <?php
+                            if (!empty($patient->medical_insurance)) {
+                                if ($patient->medical_insurance == 'no') {
+                                    echo 'selected';
+                                }
+                            }
+                            ?> > No </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1"><?php echo lang('insurer'); ?> &ast;</label>
+                        <input type="text" class="form-control" name="insurer"  value='' placeholder="">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1"><?php echo lang('emergency_contact_name'); ?></label>
+                        <input type="text" class="form-control" name="emergency_contact_name"  value='' placeholder="">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1"><?php echo lang('emergency_contact_number'); ?></label>
+                        <input type="number" class="form-control"  name="emergency_contact_number" value='' placeholder="">
+                    </div>
+
                                         
-                                             </div>
-                                            
-                                  
-                                            
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1"><?php echo lang('blood_group'); ?></label>
-                                            <select class="form-control m-bot15" name="bloodgroup" value=''>
-                                                <?php foreach ($groups as $group) { ?>
-                                                    <option value="<?php echo $group->group; ?>" <?php
-                                                    if (!empty($setval)) {
-                                                        if ($group->group == set_value('bloodgroup')) {
-                                                            echo 'selected';
-                                                        }
-                                                    }
-                                                    if (!empty($patient->bloodgroup)) {
-                                                        if ($group->group == $patient->bloodgroup) {
-                                                            echo 'selected';
-                                                        }
-                                                    }
-                                                    ?> > <?php echo $group->group; ?> </option>
-                                                        <?php } ?> 
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1"><?php echo lang('image'); ?></label>
-                                            <input type="file" name="img_url">
-                                        </div>
+                                       
 
                                         <?php if (empty($id)) { ?>
 
