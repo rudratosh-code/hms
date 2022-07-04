@@ -931,6 +931,7 @@ $lang['blood_pressure'] = 'BP';
 $lang['lifestyle'] = 'Lifestyle';
 $lang['temperature'] = 'Temperature';
 $lang['remarks'] = 'Remarks';
+$lang['ECG'] = 'ECG';
 $lang['blood_sugar_level'] ='Blood Sugar';
 $lang['general_appearance'] = 'General Appearance';
 $lang['oxygen_saturation'] = 'Oxygen Saturation';

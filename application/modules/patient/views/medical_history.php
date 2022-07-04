@@ -1199,6 +1199,12 @@
                         <label for="exampleInputEmail1"> <?php echo lang('blood_sugar_level'); ?>(mg/dL)&ast; </label>
                         <input min="1" type="number" step="0.5" class="form-control" name="blood_sugar_level" placeholder="" required="">
                     </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1"> <?php echo lang('ECG'); ?></label>
+                        <input type="file" class="form-control" name="ecg" placeholder="">
+                    </div>
+
                     <div class="form-group col-md-6">
                         <label for="exampleInputEmail1"> <?php echo lang('remarks'); ?> </label>
                         <textarea type="text" class="form-control" name="remarks" placeholder=""></textarea>
