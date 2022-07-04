@@ -76,14 +76,14 @@
                     <div class="form-group col-md-6">
                     <label for="exampleInputEmail1"><?php echo lang('address'); ?> &ast;</label>
                         <select class="form-control m-bot15" name="address" value=''>
-                            <?php foreach ($areas as $area) { ?>
-                                <option value="<?php echo $area->area; ?>" <?php
-                                if (!empty($patient->area)) {
-                                    if ($area->area == $patient->area) {
+                            <?php foreach ($address as $ads) { ?>
+                                <option value="<?php echo $ads->name; ?>" <?php
+                                if (!empty($patient->address)) {
+                                    if ($ads->name == $patient->address) {
                                         echo 'selected';
                                     }
                                 }
-                                ?> > <?php echo $area->area; ?> </option>
+                                ?> > <?php echo $ads->name; ?> </option>
                                     <?php } ?> 
                         </select>
                     </div>
@@ -136,14 +136,14 @@
                                     echo 'selected';
                                 }
                             }
-                            ?> > yes </option>
+                            ?> > Yes </option>
                             <option value="no" <?php
                             if (!empty($patient->medical_insurance)) {
                                 if ($patient->medical_insurance == 'no') {
                                     echo 'selected';
                                 }
                             }
-                            ?> > no </option>
+                            ?> > No </option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">
@@ -444,10 +444,10 @@
                         <div class="bloodgroupClass"></div>
                     </div>
 
-                    <div class="form-group col-md-4">
+                    <!-- <div class="form-group col-md-4">
                         <label><?php echo lang('birth_date'); ?></label>
                         <div class="birthdateClass"></div>     
-                    </div>
+                    </div> -->
 
 
 

@@ -20,6 +20,7 @@ class Patient extends MX_Controller {
         require APPPATH . 'third_party/stripe/stripe-php/init.php';
         $this->load->model('medicine/medicine_model');
         $this->load->model('doctor/doctor_model');
+        $this->load->model('address/Address_model');
         $this->load->module('paypal');
         if (!$this->ion_auth->in_group(array('admin', 'Nurse', 'Patient', 'Doctor', 'Laboratorist', 'Accountant', 'Receptionist'))) {
             redirect('home/permission');
@@ -33,6 +34,7 @@ class Patient extends MX_Controller {
         $data['doctors'] = $this->doctor_model->getDoctor();
         $data['groups'] = $this->donor_model->getBloodBank();
         $data['settings'] = $this->settings_model->getSettings();
+        $data['address'] = $this->Address_model->getAddress();
         $this->load->view('home/dashboard');
         $this->load->view('patient', $data);
         $this->load->view('home/footer');
@@ -53,6 +55,7 @@ class Patient extends MX_Controller {
         $data['doctors'] = $this->doctor_model->getDoctor();
         $data['groups'] = $this->donor_model->getBloodBank();
         $data['areas'] = $this->donor_model->getBloodBank();
+        $data['address'] = $this->Address_model->getAddress();
         $this->load->view('home/dashboard');
         $this->load->view('add_new', $data);
         $this->load->view('home/footer');
@@ -60,6 +63,8 @@ class Patient extends MX_Controller {
 
     public function addNew() {
 
+        //print_r($_POST);
+        //die;
         if ($this->ion_auth->in_group(array('Patient'))) {
             redirect('home/permission');
         }
@@ -80,7 +85,7 @@ class Patient extends MX_Controller {
             $redirect = $this->input->post('redirect');
         }
         $name = $this->input->post('name');
-        $medicalIsurance = $this->input->post('medical_isurance');
+        $medicalInsurance = $this->input->post('medical_insurance');
         $insurer = $this->input->post('insurer');
         $emergencyContactName = $this->input->post('emergency_contact_name');
         $emergencyContactNumber = $this->input->post('emergency_contact_number');
@@ -91,6 +96,7 @@ class Patient extends MX_Controller {
         $sex = $this->input->post('sex');   
         $age = $this->input->post('age');             
         $patient_id = $this->input->post('p_id');
+        
         if (empty($patient_id)) {
             $patient_id = rand(10000, 1000000);
         }
@@ -120,7 +126,7 @@ class Patient extends MX_Controller {
         // Validating Doctor Field
         //   $this->form_validation->set_rules('doctor', 'Doctor', 'trim|min_length[1]|max_length[100]|xss_clean');
         // Validating Address Field   
-        $this->form_validation->set_rules('address', 'Address', 'trim|required|min_length[2]|max_length[500]|xss_clean');
+        //$this->form_validation->set_rules('address', 'Address', 'trim|required|min_length[2]|max_length[500]|xss_clean');
         // Validating Phone Field           
         $this->form_validation->set_rules('phone', 'Phone', 'trim|required|min_length[2]|max_length[50]|xss_clean');
         // Validating Email Field
@@ -184,7 +190,7 @@ class Patient extends MX_Controller {
                     'appointment_confirmation' => 'Active',
                     'appointment_creation' => 'Active',
                     'meeting_schedule' => 'Active',
-                    'isurance'=>$medicalIsurance,
+                    'insurance'=>$medicalInsurance,
                     'insurer'=>$insurer,
                     'emergency_contact_name'=>$emergencyContactName,
                     'emergency_contact_number'=>$emergencyContactNumber,
@@ -201,15 +207,15 @@ class Patient extends MX_Controller {
                     'address' => $address,
                     'phone' => $phone,
                     'sex' => $sex,
-                    'birthdate' => $birthdate,
-                    'bloodgroup' => $bloodgroup,
+                    //'birthdate' => $birthdate,
+                    //'bloodgroup' => $bloodgroup,
                     'add_date' => $add_date,
                     'registration_time' => $registration_time,
                     'payment_confirmation' => 'Active',
                     'appointment_confirmation' => 'Active',
                     'appointment_creation' => 'Active',
                     'meeting_schedule' => 'Active',
-                    'isurance'=>$medicalIsurance,
+                    'insurance'=>$medicalInsurance,
                     'insurer'=>$insurer,
                     'emergency_contact_name'=>$emergencyContactName,
                     'emergency_contact_number'=>$emergencyContactNumber,
@@ -330,13 +336,13 @@ class Patient extends MX_Controller {
         $doctor = $data['patient']->doctor;
         $data['doctor'] = $this->doctor_model->getDoctorById($doctor);
 
-        if (!empty($data['patient']->birthdate)) {
-            $birthDate = strtotime($data['patient']->birthdate);
-            $birthDate = date('m/d/Y', $birthDate);
-            $birthDate = explode("/", $birthDate);
-            $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date("md") ? ((date("Y") - $birthDate[2]) - 1) : (date("Y") - $birthDate[2]));
-            $data['age'] = $age . ' Year(s)';
-        }
+        // if (!empty($data['patient']->birthdate)) {
+        //     $birthDate = strtotime($data['patient']->birthdate);
+        //     $birthDate = date('m/d/Y', $birthDate);
+        //     $birthDate = explode("/", $birthDate);
+        //     $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date("md") ? ((date("Y") - $birthDate[2]) - 1) : (date("Y") - $birthDate[2]));
+        //     $data['age'] = $age . ' Year(s)';
+        // }
 
         echo json_encode($data);
     }

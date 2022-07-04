@@ -12,7 +12,7 @@ class Patient_model extends CI_model {
 
     function insertPatient($data) {
         $data1 = array('hospital_id' => $this->session->userdata('hospital_id'));
-        $data2 = array_merge($data, $data1);
+        $data2 = array_merge($data, $data1); 
         $this->db->insert('patient', $data2);
     }
 
