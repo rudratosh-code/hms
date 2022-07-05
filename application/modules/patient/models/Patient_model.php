@@ -44,6 +44,19 @@ class Patient_model extends CI_model {
         $query = $this->db->get('patient');
         return $query->result();
     }
+    function getPatientWithoutSearchLab($order, $dir) {
+        if ($order != null) {
+            $this->db->order_by($order, $dir);
+        } else {
+            //$this->db->order_by('id', 'desc');
+            $this->db->order_by('name', 'asc');
+        }
+        $this->db->where('hospital_id', $this->session->userdata('hospital_id'));
+        $this->db->where('refer_to_angiography', 1);
+        $this->db->order_by('id', 'desc');
+        $query = $this->db->get('patient');
+        return $query->result();
+    }
 
     function getPatientBySearch($search, $order, $dir) {
         if ($order != null) {

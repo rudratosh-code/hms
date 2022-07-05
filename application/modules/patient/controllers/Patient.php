@@ -90,12 +90,15 @@ class Patient extends MX_Controller {
         $emergencyContactName = $this->input->post('emergency_contact_name');
         $emergencyContactNumber = $this->input->post('emergency_contact_number');
         $sms = $this->input->post('sms');
+        $temp = $this->input->post('refer_to_angiography');
+        $refer_to_angiography = (isset($temp)) ? (1) : (0);
         $doctor = $this->input->post('doctor');
         $address = $this->input->post('address');
         $phone = $this->input->post('phone');
         $sex = $this->input->post('sex');   
         $age = $this->input->post('age');             
         $patient_id = $this->input->post('p_id');
+        
         
         if (empty($patient_id)) {
             $patient_id = rand(10000, 1000000);
@@ -194,7 +197,8 @@ class Patient extends MX_Controller {
                     'insurer'=>$insurer,
                     'emergency_contact_name'=>$emergencyContactName,
                     'emergency_contact_number'=>$emergencyContactNumber,
-                    'age'=>$age
+                    'age'=>$age,
+                    'refer_to_angiography'=>$refer_to_angiography
                 );
             } else {
 
@@ -219,7 +223,8 @@ class Patient extends MX_Controller {
                     'insurer'=>$insurer,
                     'emergency_contact_name'=>$emergencyContactName,
                     'emergency_contact_number'=>$emergencyContactNumber,
-                    'age'=>$age
+                    'age'=>$age,
+                    'refer_to_angiography'=>$refer_to_angiography
                 );
             }
            
@@ -1225,19 +1230,24 @@ class Patient extends MX_Controller {
         $dir = $values[0];
         $order = $values[1];
 
+        if ($this->ion_auth->in_group(array('Laboratorist'))){
+            $data['patients'] = $this->patient_model->getPatientWithoutSearchLab($order, $dir);
+        }else{
         if ($limit == -1) {
             if (!empty($search)) {
                 $data['patients'] = $this->patient_model->getPatientBysearch($search, $order, $dir);
             } else {
                 $data['patients'] = $this->patient_model->getPatientWithoutSearch($order, $dir);
             }
-        } else {
+        }
+         else{
             if (!empty($search)) {
                 $data['patients'] = $this->patient_model->getPatientByLimitBySearch($limit, $start, $search, $order, $dir);
             } else {
                 $data['patients'] = $this->patient_model->getPatientByLimit($limit, $start, $order, $dir);
             }
         }
+    }
 
         $i = 0;
         foreach ($data['patients'] as $patient) {
@@ -1287,12 +1297,20 @@ class Patient extends MX_Controller {
                 );
             }
 
-            if ($this->ion_auth->in_group(array('Laboratorist', 'Nurse', 'Doctor'))) {
+            if ($this->ion_auth->in_group(array('Nurse', 'Doctor'))) {
                 $info[] = array(
                     $patient->id,
                     $patient->name,
                     $patient->phone,
                     $options1 . ' ' . $options6 . ' ' . $options3,
+                );
+            }
+            if ($this->ion_auth->in_group(array('Laboratorist'))) {
+                $info[] = array(
+                    $patient->id,
+                    $patient->name,
+                    $patient->phone,
+                    $options6 . ' ' . $options3,
                 );
             }
         }

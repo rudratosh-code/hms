@@ -72,6 +72,7 @@ $lang['edit_doctor'] = 'Edit Doctor';
 $lang['image'] = 'Image';
 $lang['email'] = 'Email';
 $lang['medical_insurance'] = 'Medical Insurance';
+$lang['refer_to_angiography'] = 'Refer To Angiography';	
 $lang['insurer'] = 'Insurer';
 $lang['emergency_contact_name'] = 'Emergency Contact Name';
 $lang['emergency_contact_number'] = 'Emergency Contact Number';

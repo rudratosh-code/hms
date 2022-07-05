@@ -191,6 +191,11 @@
 
                         </div>
                     </div>
+
+                    <div class="form-group col-md-6">
+                        <input type="checkbox" name="refer_to_angiography" value="refer_to_angiography"> <?php echo lang('refer_to_angiography') ?><br>
+                    </div>
+
                     <div class="form-group col-md-6">
                         <input type="checkbox" name="sms" value="sms"> <?php echo lang('send_sms') ?><br>
                     </div>
@@ -344,6 +349,11 @@
                             </div>
 
                         </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                    <?php echo lang('refer_to_angiography') ?><br>
+                    <input type="checkbox" name="refer_to_angiography" value="refer_to_angiography" />
                     </div>
 
                     <div class="form-group col-md-6">
