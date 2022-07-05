@@ -108,8 +108,11 @@ $(document).ready(function () {
             $("#aslots1").find("option").remove();
             var slots = response.aslots;
             $.each(slots, function (key, value) {
+              console.log(1);
               "use strict";
               $("#aslots1").append($("<option>").text(value).val(value)).end();
+              selectElement('status', "Confirmed");
+              $("#status").find("option").remove();
             });
 
             $("#aslots1").val(response.current_value).trigger("change");
@@ -177,6 +180,8 @@ $(document).ready(function () {
         $.each(slots, function (key, value) {
           "use strict";
           $("#aslots").append($("<option>").text(value).val(value)).end();
+          selectElement('status', "Confirmed");
+          console.log(1);
         });
 
         if ($("#aslots").has("option").length == 0) {
@@ -213,6 +218,8 @@ $(document).ready(function () {
       $.each(slots, function (key, value) {
         "use strict";
         $("#aslots").append($("<option>").text(value).val(value)).end();
+        selectElement('status', "Confirmed");
+        console.log(1);
       });
 
       if ($("#aslots").has("option").length == 0) {
@@ -260,6 +267,8 @@ function dateChanged() {
       $.each(slots, function (key, value) {
         "use strict";
         $("#aslots").append($("<option>").text(value).val(value)).end();
+        selectElement('status', "Confirmed");
+        console.log(1);
       });
 
       if ($("#aslots").has("option").length == 0) {
@@ -300,6 +309,8 @@ $(document).ready(function () {
         $.each(slots, function (key, value) {
           "use strict";
           $("#aslots1").append($("<option>").text(value).val(value)).end();
+          selectElement('status', "Confirmed");
+          console.log(1);
         });
 
         if ($("#aslots1").has("option").length == 0) {
@@ -314,6 +325,10 @@ $(document).ready(function () {
     });
   });
 });
+function selectElement(id, valueToSelect) {    
+  let element = document.getElementById(id);
+  element.value = valueToSelect;
+}
 
 $(document).ready(function () {
   "use strict";

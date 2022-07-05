@@ -313,7 +313,7 @@
                     </div>
                     <div class="col-md-6 panel">
                         <label for="exampleInputEmail1"> <?php echo lang('appointment'); ?> <?php echo lang('status'); ?></label> 
-                        <select class="form-control m-bot15" name="status" value=''> 
+                        <select class="form-control m-bot15" name="status" value='' id="status"> 
                             <option value="Pending Confirmation" <?php
                                 ?> > <?php echo lang('pending_confirmation'); ?> </option>
                             <option value="Confirmed" <?php
@@ -434,7 +434,7 @@
                     </div>
                     <div class="col-md-6 panel">
                         <label for="exampleInputEmail1"> <?php echo lang('appointment'); ?> <?php echo lang('status'); ?></label> 
-                        <select class="form-control m-bot15" name="status" value=''>
+                        <select class="form-control m-bot15" name="status" value='' id="status>
                             <option value="Pending Confirmation" <?php
                                 ?> > <?php echo lang('pending_confirmation'); ?> </option>
                             <option value="Confirmed" <?php

@@ -177,7 +177,7 @@
                             <label for="exampleInputEmail1"> <?php echo lang('appointment'); ?> <?php echo lang('status'); ?></label>
                         </div>
                         <div class="col-md-9"> 
-                            <select class="form-control m-bot15" name="status" value=''>
+                            <select class="form-control m-bot15" name="status" value='' id="status>
                                 <option value="Pending Confirmation" <?php
                                 if (!empty($appointment->status)) {
                                     if ($appointment->status == 'Pending Confirmation') {
