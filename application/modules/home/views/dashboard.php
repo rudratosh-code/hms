@@ -1117,6 +1117,7 @@ if (!$this->ion_auth->in_group(array('superadmin'))) {
                                     <?php } ?>
 
                                     <?php if (in_array('report', $this->modules)) { ?>
+                                        <li><a  href="report/addReportView"><i class="fa fa-plus-circle"></i><?php echo lang('add_new_report'); ?></a></li>
                                         <li><a  href="report/birth"><i class="fas fa-file-medical"></i><?php echo lang('birth_report'); ?></a></li>
                                         <li><a  href="report/operation"><i class="fa fa-wheelchair"></i><?php echo lang('operation_report'); ?></a></li>
                                         <li><a  href="report/expire"><i class="fas fa-file-medical"></i><?php echo lang('expire_report'); ?></a></li>
