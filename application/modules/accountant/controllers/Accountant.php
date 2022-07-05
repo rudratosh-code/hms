@@ -9,7 +9,6 @@ class Accountant extends MX_Controller {
         parent::__construct();
 
         $this->load->model('accountant_model');
- 
         if (!$this->ion_auth->in_group('admin')) {
             redirect('home/permission');
         }
