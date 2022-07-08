@@ -12,6 +12,9 @@ class Address_model extends CI_model {
     function getAddress() {
         $this->db->order_by('id', 'desc');
         $query = $this->db->get('address');
-        return $query->result();
+        if($query->num_rows() > 0) 
+            return $query->result();
+        else
+            return [];
     }
 }

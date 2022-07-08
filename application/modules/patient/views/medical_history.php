@@ -30,7 +30,7 @@
 
                         <li> <?php echo lang('patient_id'); ?> <span class="label pull-right r-activity"><?php echo $patient->id; ?></span></li>
                         <li> <?php echo lang('gender'); ?><span class="label pull-right r-activity"><?php echo $patient->sex; ?></span></li>
-                        <li> <?php echo lang('birth_date'); ?><span class="label pull-right r-activity"><?php echo $patient->birthdate; ?></span></li>
+<!--                        <li> --><?php //echo lang('birth_date'); ?><!--<span class="label pull-right r-activity">--><?php //echo $patient->birthdate; ?><!--</span></li>-->
                         <li> <?php echo lang('phone'); ?><span class="label pull-right r-activity"><?php echo $patient->phone; ?></span></li>
                         <li> <?php echo lang('email'); ?><span class="label pull-right r-activity"><?php echo $patient->email; ?></span></li>
                         <li class="address_bar"> <?php echo lang('address'); ?><span class="pull-right address_bar"><?php echo $patient->address; ?></span></li>
