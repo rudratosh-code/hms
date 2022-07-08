@@ -55,7 +55,7 @@
 
 
 
-<script src="common/js/codearistos.min.js"></script>
+<script src="common/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">var language = "<?php echo $this->language; ?>";</script>
 <script defer type="text/javascript" src="common/assets/DataTables/datatables.min.js"></script>
 <script src="common/extranal/js/finance/draft_payment.js"></script>

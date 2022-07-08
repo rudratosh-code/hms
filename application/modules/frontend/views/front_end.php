@@ -809,7 +809,7 @@
 </html> 
 
 <script type="text/javascript" src="common/assets/ckeditor/ckeditor.js"></script>
-<script src="common/js/codearistos.min.js"></script>
+<script src="common/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">var payment_gateway = "<?php echo $settings1->payment_gateway; ?>";</script>
 <script type="text/javascript">var publish = "<?php echo $gateway->publish; ?>";</script>

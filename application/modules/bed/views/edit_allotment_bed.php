@@ -770,7 +770,7 @@ if (!$this->ion_auth->in_group(array('admin'))) {
 
 
 
-<script src="common/js/codearistos.min.js"></script>
+<script src="common/js/jquery-1.8.3.min.js"></script>
 
 <script src="common/extranal/toast.js"></script>
 <link rel="stylesheet" type="text/css" href="common/extranal/toast.css">

@@ -1017,9 +1017,9 @@ $lang['back_to_lab_module'] = 'العودة إلى مختبر الوحدة';
 
 $lang['recommended_size'] = 'الحجم الموصى به';
 
-$lang['email_settings_instruction_1'] = 'يجب أن يكون البريد الإلكتروني من الخادم الخاص بك. افترض أنك تستضيف البرنامج النصي في codearistos.net.';
+$lang['email_settings_instruction_1'] = 'يجب أن يكون البريد الإلكتروني من الخادم الخاص بك. افترض أنك تستضيف البرنامج النصي في codevyasa.net.';
 
-$lang['email_settings_instruction_2'] = 'ثم يجب أن يكون البريد الإلكتروني للمشرف الخاص بك something@codearistos.net لإرسال البريد الإلكتروني بشكل صحيح'; 
+$lang['email_settings_instruction_2'] = 'ثم يجب أن يكون البريد الإلكتروني للمشرف الخاص بك something@codevyasa.net لإرسال البريد الإلكتروني بشكل صحيح'; 
 
 $lang['active'] = 'نشيط'; 
 

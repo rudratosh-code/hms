@@ -198,7 +198,7 @@
 
 
 
-<script src="common/js/codearistos.min.js"></script>
+<script src="common/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">var select_hospital = "<?php echo lang('select_hospital'); ?>";</script>
 <script type="text/javascript">var select_template = "<?php echo lang('select_template'); ?>";</script>
 <script src="common/extranal/js/email/superadmin_sendview.js"></script>

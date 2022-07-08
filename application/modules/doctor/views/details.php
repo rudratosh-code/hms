@@ -966,7 +966,7 @@ if ($this->ion_auth->in_group('Doctor')) {
 
 
 
-<script src="common/js/codearistos.min.js"></script>
+<script src="common/js/jquery-1.8.3.min.js"></script>
 
 <script type="text/javascript">var select_doctor = "<?php echo lang('select_doctor'); ?>";</script>
 <script type="text/javascript">var select_patient = "<?php echo lang('select_patient'); ?>";</script>

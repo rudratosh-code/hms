@@ -435,7 +435,7 @@
     </div><!-- /.modal-dialog -->
 </div>
 <!-- Edit Event Modal-->
-<script src="common/js/codearistos.min.js"></script>
+<script src="common/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">var language = "<?php echo $this->language; ?>";</script>
 <script type="text/javascript">var gateway = "<?php echo $gateway->publish; ?>";</script>

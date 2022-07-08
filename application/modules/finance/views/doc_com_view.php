@@ -147,7 +147,7 @@
 
 
 
-<script src="common/js/codearistos.min.js"></script>
+<script src="common/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">var language = "<?php echo $this->language; ?>";</script>
 <script type="text/javascript">var doctor_name = "<?php echo $this->doctor_model->getDoctorById($doctor)->name; ?>";</script>
 <script src="common/extranal/js/finance/doc_com_view.js"></script>

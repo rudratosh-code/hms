@@ -625,7 +625,7 @@ if (!empty($hospital->id)) {
 }
 ?>
 
-<script src="common/js/codearistos.min.js"></script>
+<script src="common/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">var hospital_id = "<?php echo $hospital_id; ?>";</script>
 <script type="text/javascript">var hospital_package = "<?php echo $hospital_package; ?>";</script>

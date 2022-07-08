@@ -353,7 +353,7 @@
 </div>
 <!-- Edit Patient Modal-->
 
-<script src="common/js/codearistos.min.js"></script>
+<script src="common/js/jquery-1.8.3.min.js"></script>
 
 <script type="text/javascript">var language = "<?php echo $this->language; ?>";</script>
 

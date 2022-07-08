@@ -435,6 +435,6 @@
 <!--main content end-->
 <!--footer start-->
 
-<script src="common/js/codearistos.min.js"></script>
+<script src="common/js/jquery-1.8.3.min.js"></script>
 <script src="common/extranal/js/patient/myInvoice.js"></script>
 

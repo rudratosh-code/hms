@@ -275,7 +275,7 @@ if (!$this->ion_auth->in_group(array('superadmin'))) {
                 <link href="common/extranal/css/settings/invoice-all.css" rel="stylesheet">
 
 
-                <script src="common/js/codearistos.min.js"></script>
+                <script src="common/js/jquery-1.8.3.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
 

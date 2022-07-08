@@ -134,7 +134,7 @@
 
 <!-- js placed at the end of the document so the pages load faster -->
 
-<script src="common/js/codearistos.min.js"></script>
+<script src="common/js/jquery-1.8.3.min.js"></script>
 <script>
     $(window).on('load', function () {
         //      $('#myModal33').modal('show');

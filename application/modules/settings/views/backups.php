@@ -110,7 +110,7 @@
         </div>
     </div>
 </div>
-<script src="common/js/codearistos.min.js"></script>
+<script src="common/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">var restore_confirm = "<?php echo lang('restore_confirm'); ?>";</script>
 <script type="text/javascript">var restore_modal_heading = "<?php echo lang('restore_modal_heading'); ?>";</script>
 <script type="text/javascript">var backup_modal_heading = "<?php echo lang('backup_modal_heading'); ?>";</script>
