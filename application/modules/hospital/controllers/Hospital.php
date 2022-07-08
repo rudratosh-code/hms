@@ -343,7 +343,7 @@ class Hospital extends MX_Controller {
                     'address' => $address,
                     'phone' => $phone,
                     'language' => $language,
-                    'system_vendor' => 'Code Aristos - Hospital management System',
+                    'system_vendor' => 'Code Vyasa - Hospital management System',
                     'discount' => 'flat',
                     'sms_gateway' => 'Twilio',
                     'currency' => '$',

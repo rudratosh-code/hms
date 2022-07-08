@@ -752,7 +752,7 @@
         </div>
         <footer class="site-footer">
             <div class="text-center"> 
-                20<?php echo date('y'); ?> &copy; <?php echo $this->db->get('settings')->row()->system_vendor; ?> by Code Aristos.
+                20<?php echo date('y'); ?> &copy; <?php echo $this->db->get('settings')->row()->system_vendor; ?> by Code Vyasa.
 
             </div>
         </footer>
